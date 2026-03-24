@@ -11,6 +11,9 @@ The changlog started on May 24th 2026.
 1 and 2 should not change gameplay.
 
 ## Round down system fixed (May 24th 2026): bug fixes
+- Fixed the round down system (the previous "fix" didn't work)
+
+## Round down system fixed (May 24th 2026): bug fixes
 - Fixed the round down system (it came with the New price system update) by replacing Math.floor by Math.trunc
 
 ## New price system and more (May 24th 2026): mayor update
