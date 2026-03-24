@@ -502,8 +502,8 @@
         loadButton.className = "green"
         clicks = JSON.parse(localStorage.getItem('cookies'))
         cps = JSON.parse(localStorage.getItem('cps'))
-        cookies.value = clicks
-        cpsShow.value = cps
+        cookies.textContent = clicks
+        cpsShow.textContent = cps + " cps"
 
         cursor = JSON.parse(localStorage.getItem('amountCursor'))
         oma = JSON.parse(localStorage.getItem('amountOma'))
