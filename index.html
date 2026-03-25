@@ -708,6 +708,8 @@
                 setTimeout(normalbutton, 2500)
             }
 
+            load()
+
             function updateButtons() {
                 // (1000 * Math.pow(1.15, cursor))
                 if (clicks >= (3300000000 * Math.pow(1.15, wTower))) {
@@ -816,8 +818,9 @@
                 if (confirm("Are you sure you want to delete ALL your progress?")) {
                     if (confirm("Whoa! Wait, are you really sure? You can't undo this.")) {
                         if (confirm("Are you really really really really really sure? This is your final warning! You really can't undo this!")) {
-                            localStorage.removeItem('cookies')
-                            localStorage.removeItem('cps')
+                            alert("Don't say I didn't warn you!")
+                            localStorage.removeItem('cookies');
+                            localStorage.removeItem('cps');
 
                             localStorage.removeItem('amountCursor');
                             localStorage.removeItem('amountGranny');
@@ -831,8 +834,8 @@
                             cps = 0
                             cookies.textContent = 0
                             cpsShow.textContent = 0
-                            alert("Don't say I didn't warn you!")
-                            alert("Progress successfull removed.")
+                            alert("Progress successfull removed.");
+                            alert("Close this tab and reopen the game.")
                         } else {
                         alert("That was close! You almost deleted your progress. Your progress has not been deleted.") 
                         }
