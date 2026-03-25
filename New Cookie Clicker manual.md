@@ -24,3 +24,5 @@ Buildings will get more expensive if you buy one. The formula to calculate the p
 > Base cost × 1.15<sup>Current amount of buildings</sup>
 
 The selling value is always 25% of the current price.
+
+<ins>After resetting your progress, close the tab and reopen the game.</ins>
