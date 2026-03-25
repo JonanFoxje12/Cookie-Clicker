@@ -16,6 +16,9 @@ The changlog started on May 24th 2026.
 - CPC, cookies per click.
 - Fix the link to the manual
 
+## Load cps cheat fixed (May 25th 2026): bug fixes
+- The player could greatly speed up the cps generation by hitting the load button multiple times, that has been removed in this update.
+
 ## No manual load required (May 25th 2026): small change
 - The player had to press the load button every time he joined, that is not needed anymore.
 
