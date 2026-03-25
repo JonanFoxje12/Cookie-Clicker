@@ -16,6 +16,9 @@ The changlog started on May 24th 2026.
 - CPC, cookies per click.
 - Fix the link to the manual
 
+## Fixed remove progress function (May 25th 2026): bug fixes
+- When progress was removed, only the cps and the cookies were removed, after this update, all buildings are removed too.
+
 ## Better manual (May 25th 2026): update
 - I added the better manual called "New Cookie Clicker manual.md". I left the old one version "Cookie Clicker manual.html" because I'm still trying to fix the link to the manual, but I have not been able to fix that yet. "Cookie Clicker manual.html" is outdated and not recommended to use. So until I fixed the link, use "New Cookie Clicker manual.md".
 
