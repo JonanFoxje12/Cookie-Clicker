@@ -329,21 +329,6 @@
 
             createLocalVariables()
 
-            cursorButton.value = "Buy a cursor for " + (150 * Math.pow(1.15, cursor)) + " cookies."
-            sellCursorButton.value = "Sell a cursor for " + Math.trunc((150 * Math.pow(1.15, cursor)) / 4) + " cookies."
-            grannyButton.value = "Buy a granny for " + (1000 * Math.pow(1.15, granny)) + " cookies."
-            sellGrannyButton.value = "Sell a granny for " + Math.trunc((1000 * Math.pow(1.15, granny)) / 4) + " cookies."
-            mineButton.value = "Buy a mine for " + (120000 * Math.pow(1.15, mine)) + " cookies."
-            sellMineButton.value = "Sell a mine for " + Math.trunc((120000 * Math.pow(1.15, mine)) / 4) + " cookies."
-            factoryButton.value = "Buy a factory for " + (1300000 * Math.pow(1.15, factory)) + " cookies."
-            sellFactoryButton.value = "Sell a factory for " + Math.trunc((1300000 * Math.pow(1.15, factory)) / 4) + " cookies."
-            bankButton.value = "Buy a bank for " + (14000000 * Math.pow(1.15, bank)) + " cookies."
-            sellBankButton.value = "Sell bank for " + Math.trunc((14000000 * Math.pow(1.15, bank)) / 4) + " cookies."
-            templeButton.value = "Buy a temple for " + (200000000 * Math.pow(1.15, temple)) + " cookies."
-            sellTempleButton.value = "Sell a temple for " + Math.trunc((200000000 * Math.pow(1.15, temple)) / 4) + " cookies."
-            wTowerButton.value = "Buy a wizard tower for " + (3300000000 * Math.pow(1.15, wTower)) + " cookies."
-            sellWTowerButton.value = "Sell a wizard tower for " + Math.trunc((3300000000 * Math.pow(1.15, wTower)) / 4) + " cookies."
-
             function makeCps() {
                 clicks += cps
                 cookies.textContent = clicks
@@ -683,8 +668,8 @@
 
             function load() {
                 loadButton.className = "green"
-                clicks = JSON.parse(localStorage.getItem('cookies'))
-                cps = JSON.parse(localStorage.getItem('cps'))
+                clicks = JSON.parse(localStorage.getItem('cookies'));
+                cps = JSON.parse(localStorage.getItem('cps'));
                 cookies.textContent = clicks
                 cpsShow.textContent = cps + " cps"
 
@@ -705,6 +690,21 @@
                 amountBank.value = bank
                 amountTemple.value = temple
                 amountWTower.value = wTower
+
+                cursorButton.value = "Buy a cursor for " + Math.trunc(150 * Math.pow(1.15, cursor)) + " cookies."
+                sellCursorButton.value = "Sell a cursor for " + Math.trunc((150 * Math.pow(1.15, cursor)) / 4) + " cookies."
+                grannyButton.value = "Buy a granny for " + Math.trunc(1000 * Math.pow(1.15, granny)) + " cookies."
+                sellGrannyButton.value = "Sell a granny for " + Math.trunc((1000 * Math.pow(1.15, granny)) / 4) + " cookies."
+                mineButton.value = "Buy a mine for " + Math.trunc(120000 * Math.pow(1.15, mine)) + " cookies."
+                sellMineButton.value = "Sell a mine for " + Math.trunc((120000 * Math.pow(1.15, mine)) / 4) + " cookies."
+                factoryButton.value = "Buy a factory for " + Math.trunc(1300000 * Math.pow(1.15, factory)) + " cookies."
+                sellFactoryButton.value = "Sell a factory for " + Math.trunc((1300000 * Math.pow(1.15, factory)) / 4) + " cookies."
+                bankButton.value = "Buy a bank for " + Math.trunc(14000000 * Math.pow(1.15, bank)) + " cookies."
+                sellBankButton.value = "Sell bank for " + Math.trunc((14000000 * Math.pow(1.15, bank)) / 4) + " cookies."
+                templeButton.value = "Buy a temple for " + Math.trunc(200000000 * Math.pow(1.15, temple)) + " cookies."
+                sellTempleButton.value = "Sell a temple for " + Math.trunc((200000000 * Math.pow(1.15, temple)) / 4) + " cookies."
+                wTowerButton.value = "Buy a wizard tower for " + Math.trunc(3300000000 * Math.pow(1.15, wTower)) + " cookies."
+                sellWTowerButton.value = "Sell a wizard tower for " + Math.trunc((3300000000 * Math.pow(1.15, wTower)) / 4) + " cookies."
 
                 console.log("Progress loaded succesfully.");
                 setTimeout(normalbutton, 2500)
