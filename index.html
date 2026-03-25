@@ -271,6 +271,7 @@
             let bank = 0;
             let temple = 0;
             let wTower = 0;
+            let cpsStarted = false;
 
             function createLocalVariables() {
                 // This function is made for if a player plays the game for the first time
@@ -663,8 +664,10 @@
                 }
             }
 
-            function load() {
-                loadButton.className = "green"
+            function load(manual = true) {
+                if (manual) {
+                    loadButton.className = "green"
+                }
                 clicks = JSON.parse(localStorage.getItem('cookies'));
                 cps = JSON.parse(localStorage.getItem('cps'));
                 cookies.textContent = clicks
@@ -704,11 +707,13 @@
                 sellWTowerButton.value = "Sell a wizard tower for " + Math.trunc((3300000000 * Math.pow(1.15, wTower)) / 4) + " cookies."
 
                 console.log("Progress loaded succesfully.");
-                setInterval(makeCps, 1000)
+                if (!cpsStarted) {
+                    setInterval(makeCps, 1000)
+                }
                 setTimeout(normalbutton, 2500)
             }
 
-            load()
+            load(false)
 
             function updateButtons() {
                 // (1000 * Math.pow(1.15, cursor))
