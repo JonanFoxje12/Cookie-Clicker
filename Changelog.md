@@ -9,12 +9,13 @@ The changlog started on May 24th 2026.
 4. Big update
 5. Mayor Update
 
-1 and 2 should not change gameplay.
-
 ### Still working on
 - Ten million is currently being written as "10000000", this should be "10,000,000".
 - CPC, cookies per click.
 - Fix the link to the manual
+
+## Credits added (March 27th 2026): small change
+- Credits added
 
 ## Fixed link to the manual (March 27th 2026): bug fixes
 - The in-game link to the manual has finally been fixed.
