@@ -10,7 +10,13 @@ The changlog started on May 24th 2026.
 5. Mayor Update
 
 ### Still working on
-- CPC, cookies per click.
+- ...
+- Nothing here anymore...
+- If you have any ideas, post them as an issue!
+
+## CpC update (March 27<sup>th</sup> 2026): big update
+- Added the CpC system
+- Fixed some English number notations inside the script
 
 ## English number notation (March 27<sup>th</sup> 2026): small change
 - Ten million was written as "10000000", new it's written as "10,000,000"
