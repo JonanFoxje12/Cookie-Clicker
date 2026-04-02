@@ -1094,6 +1094,13 @@
 
             setInterval(updateButtons, 100)
 
+            function confirmClose(e) {
+                e.preventDefault();
+            }
+
+            window.addEventListener('beforeunload', confirmClose);
+            window.onbeforeunload = confirmClose;
+
             function reset() {
                 if (confirm("Are you sure you want to delete ALL your progress?")) {
                     if (confirm("Whoa! Wait, are you really sure? You can't undo this.")) {
