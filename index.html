@@ -178,7 +178,7 @@
         <p id="outputCps">0 CpS</p>
         <p id="outputCpc">0 CpC</p>
         <fieldset>
-            <legend>Building shop (increase cps)</legend>
+            <legend>Building shop (increase CpS)</legend>
             <input type="button" value="Buy a cursor for 150 cookies." id="cursorButton" onclick="buyCursor()">
             <input type="button" value="Sell a cursor for 37 cookies." id="sellCursor" class="sell" onclick="sellCursor()">
             <input type="button" value="0" id="amountCursor"><br>
@@ -212,12 +212,27 @@
             <input type="button" value="0" id="amountWTower"><br>
         </fieldset>
         <fieldset>
-            <legend>Upgrade shop (increase cpc)</legend>
+            <legend>Upgrade shop (increase CpC)</legend>
             <input type="button" value="Buy a wooden finger for 1,000 cookies." id="woodenFingerButton" onclick="buyWoodenFinger()">
             <input type="button" value="0" id="amountWoodenFinger"><br>
 
             <input type="button" value="Buy an iron finger for 150,000 cookies." id="ironFingerButton" onclick="buyIronFinger()">
             <input type="button" value="0" id="amountIronFinger"><br>
+
+            <input type="button" value="Buy a silver finger for 10,000,000 cookies." id="silverFingerButton" onclick="buySilverFinger()">
+            <input type="button" value="0" id="amountSilverFinger"><br>
+
+            <input type="button" value="Buy a golden finger for 1,000,000,000 cookies." id="goldenFingerButton" onclick="buyGoldenFinger()">
+            <input type="button" value="0" id="amountGoldenFinger"><br>
+
+            <input type="button" value="Buy a steel finger for 100,000,000,000 cookies." id="steelFingerButton" onclick="buySteelFinger()">
+            <input type="button" value="0" id="amountSteelFinger"><br>
+
+            <input type="button" value="Buy a titanium finger for 10,000,000,000,000 cookies." id="titaniumFingerButton" onclick="buyTitaniumFinger()">
+            <input type="button" value="0" id="amountTitaniumFinger"><br>
+
+            <input type="button" value="Buy a diamond finger for 100,000,000,000,000,000" id="diamondFingerButton" onclick="buyDiamondFinger()">
+            <input type="button" value="0" id="amountDiamondFinger">
         </fieldset>
 
         <fieldset>
@@ -275,9 +290,19 @@
 
             const woodenFingerButton = document.getElementById('woodenFingerButton');
             const ironFingerButton = document.getElementById('ironFingerButton');
+            const silverFingerButton = document.getElementById('silverFingerButton');
+            const goldenFingerButton = document.getElementById('goldenFingerButton');
+            const steelFingerButton = document.getElementById('steelFingerButton');
+            const titaniumFingerButton = document.getElementById('titaniumFingerButton');
+            const diamondFingerButton = document.getElementById('diamondFingerButton');
 
             const amountWoodenFinger = document.getElementById('amountWoodenFinger');
             const amountIronFinger = document.getElementById('amountIronFinger');
+            const amountSilverFinger = document.getElementById('amountSilverFinger');
+            const amountGoldenFinger = document.getElementById('amountGoldenFinger');
+            const amountSteelFinger = document.getElementById('amountSilverFinger');
+            const amountTitaniumFinger = document.getElementById('amountTitaniumFinger');
+            const amountDiamondFinger = document.getElementById('amountDiamondFinger');
 
             let autosaveID;
 
@@ -296,6 +321,11 @@
 
             let woodenFinger = 0;
             let ironFinger = 0;
+            let silverFinger = 0;
+            let goldenFinger = 0;
+            let steelFinger = 0;
+            let titaniumFinger = 0;
+            let diamondFinger = 0;
 
             function toEnglishNumberNotation(input) {
                 let number = parseInt(input);
@@ -304,7 +334,7 @@
             }
 
             function createLocalVariables() {
-                // This function is made for if a player plays the game for the first time or when the player deleted his progress
+                // This function is made for if a player plays the game for the first time (after an update) or when the player deleted his progress
                 let clicks = JSON.parse(localStorage.getItem('cookies'));
                 let cpc = JSON.parse(localStorage.getItem('cpc'));
                 let cps = JSON.parse(localStorage.getItem('cps'));
@@ -319,6 +349,11 @@
 
                 let woodenFinger = JSON.parse(localStorage.getItem('amountWoodenFinger'));
                 let ironFinger = JSON.parse(localStorage.getItem('amountIronFinger'));
+                let silverFinger = JSON.parse(localStorage.getItem('amountSilverFinger'));
+                let goldenFinger = JSON.parse(localStorage.getItem('amountGoldenFinger'));
+                let steelFinger = JSON.parse(localStorage.getItem('amountSteelFinger'));
+                let titaniumFinger = JSON.parse(localStorage.getItem('amountTitaniumFinger'));
+                let diamondFinger = JSON.parse(localStorage.getItem('amountDiamondFinger'));
 
                 if (clicks === null) {
                     localStorage.setItem('cookies', 0)
@@ -370,6 +405,26 @@
 
                 if (ironFinger === null) {
                     localStorage.setItem('amountIronFinger', 0)
+                }
+
+                if (silverFinger === null) {
+                    localStorage.setItem('amountSilverFinger', 0)
+                }
+
+                if (goldenFinger === null) {
+                    localStorage.setItem('amountGoldenFinger', 0)
+                }
+
+                if (steelFinger === null) {
+                    localStorage.setItem('amountSteelFinger', 0)
+                }
+
+                if (titaniumFinger === null) {
+                    localStorage.setItem('amountTitaniumFinger', 0)
+                }
+                
+                if (diamondFinger === null) {
+                    localStorage.setItem('amountDiamondFinger', 0)
                 }
             }
 
@@ -663,6 +718,69 @@
                 }
             }
 
+            function buySilverFinger() {
+                if (clicks >= Math.trunc(10000000 * Math.pow(1.15, silverFinger))) {
+                    cpc += 50
+                    clicks -= Math.trunc(10000000 * Math.pow(1.15, silverFinger))
+                    silverFinger += 1
+                    silverFingerButton.value = "Buy a silver finger for " + toEnglishNumberNotation(Math.trunc(10000000 * Math.pow(1.15, silverFinger))) + " cookies."
+                    amountSilverFinger.value = toEnglishNumberNotation(silverFinger)
+                    cpcShow.textContent = toEnglishNumberNotation(cpc) + " CpC"
+                } else {
+                    console.warn("Not enough cookies to buy a silver finger.")
+                }
+            }
+
+            function buyGoldenFinger() {
+                if (clicks >= Math.trunc(1000000000 * Math.pow(1.15, goldenFinger))) {
+                    cpc += 100
+                    clicks -= Math.trunc(1000000000 * Math.pow(1.15, goldenFinger))
+                    goldenFinger += 1
+                    goldenFingerButton.value = "Buy a golden finger for " + toEnglishNumberNotation(Math.trunc(1000000000 * Math.pow(1.15, goldenFinger))) + " cookies."
+                    amountGoldenFinger.value = toEnglishNumberNotation(goldenFinger)
+                    cpcShow.textContent = toEnglishNumberNotation(cpc) + " CpC"
+                } else {
+                    console.warn("Not enough cookies to buy a golden finger.")
+                }
+            }
+
+            function buySteelFinger() {
+                if (clicks >= Math.trunc(100000000000 * Math.pow(1.15, steelFinger))) {
+                    cpc += 250
+                    clicks -= Math.trunc(100000000000 * Math.pow(1.15, steelFinger))
+                    steelFinger += 1
+                    steelFingerButton.value = "Buy a steel finger for " + toEnglishNumberNotation(Math.trunc(100000000000 * Math.pow(1.15, steelFinger))) + " cookies."
+                    amountSteelFinger.value = toEnglishNumberNotation(steelFinger)
+                    cpcShow.textContent = toEnglishNumberNotation(cpc) + " CpC"
+                } else {
+                    console.warn("Not enough cookies to buy a steel finger.");
+                }
+            }
+
+            function buyTitaniumFinger() {
+                if (clicks >= Math.trunc(100000000000000 * Math.trunc(1.15, titaniumFinger))) {
+                    cpc += 500
+                    clicks -= Math.trunc(100000000000000 * Math.trunc(1.15, titaniumFinger))
+                    titaniumFinger += 1
+                    steelFingerButton.value = "Buy a titanium finger for " + toEnglishNumberNotation(Math.trunc(100000000000000 * Math.trunc(1.15, titaniumFinger))) + " cookies."
+                    amountTitaniumFinger.value = toEnglishNumberNotation(titaniumFinger)
+                    cpcShow.textContent = toEnglishNumberNotation(cpc) + " CpC"
+                } else {
+                    console.warn("Not enough cookies to buy a titanium finger.")
+                }
+            }
+
+            function buyDiamondFinger() {
+                if (clicks >= Math.trunc(100000000000000000 * Math.pow(1.15, diamondFinger))) {
+                    cpc += 1000
+                    clicks -= Math.trunc(100000000000000000 * Math.pow(1.15, diamondFinger))
+                    diamondFinger += 1
+                    diamondFingerButton.value = "Buy a diamond finger for " + toEnglishNumberNotation(Math.trunc(100000000000000000 * Math.pow(1.15, diamondFinger))) + " cookies."
+                    amountDiamondFinger.value = toEnglishNumberNotation(diamondFinger)
+                    cpcShow.textContent = toEnglishNumberNotation(cpc) + " CpC"
+                }
+            }
+
             function save() {
                 saveButton.className = "green";
                 localStorage.setItem('cookies', clicks);
@@ -680,6 +798,11 @@
 
                 localStorage.setItem('amountWoodenFinger', woodenFinger);
                 localStorage.setItem('amountIronFinger', ironFinger);
+                localStorage.setItem('amountSilverFinger', silverFinger);
+                localStorage.setItem('amountGoldenFinger', goldenFinger);
+                localStorage.setItem('amountSteelFinger', steelFinger);
+                localStorage.setItem('amountTitaniumFinger', titaniumFinger);
+                localStorage.setItem('amountDiamondFinger', diamondFinger);
 
                 console.log("Progress saved succesfully.");
                 console.log("Saved cookies: " + localStorage.getItem("cookies"));
@@ -695,6 +818,12 @@
 
                 console.log("Saved amount of wooden fingers: " + localStorage.getItem("amountWoodenFinger"));
                 console.log("Saved amount of iron fingers: " + localStorage.getItem("amountIronFinger"));
+                console.log("Saved amount of silver fingers: " + localStorage.getItem("amountSilverFinger"));
+                console.log("Saved amount of golden fingers: " + localStorage.getItem("amountGoldenFingers"));
+                console.log("Saved amount of steel fingers: " + localStorage.getItem("amountSteelFinger"));
+                console.log("Saved amount of titanium fingers: " + localStorage.getItem("amountTitaniumFinger"));
+                console.log("Saved amount of diamond finger: " + localStorage.getItem("amountDiamondFinger"));
+                
                 setTimeout(normalbutton, 2500);
             }
 
@@ -720,20 +849,13 @@
 
                     localStorage.setItem('amountWoodenFinger', woodenFinger);
                     localStorage.setItem('amountIronFinger', ironFinger);
+                    localStorage.setItem('amountSilverFinger', silverFinger);
+                    localStorage.setItem('amountGoldenFinger', goldenFinger);
+                    localStorage.setItem('amountSteelFinger', steelFinger);
+                    localStorage.setItem('amountTitaniumFinger', titaniumFinger);
+                    localStorage.setItem('amountDiamondFinger', diamondFinger);
 
                     console.log("Progress succesfully autosaved.");
-                    /*
-                    console.log("Saved cookies: " + localStorage.getItem("cookies"));
-                    console.log("Saved cps: " + localStorage.getItem("cps"));
-                    console.log("Saved amount of cursors: " + localStorage.getItem("amountCursor"));
-                    console.log("Saved amount of grannies: " + localStorage.getItem("amountOma"));
-                    console.log("Saved amount of farms: " + localStorage.getItem("amountFarm"));
-                    console.log("Saved amount of mines: " + localStorage.getItem("amountMine"));
-                    console.log("Saved amount of factories: " + localStorage.getItem("amountFactory"));
-                    console.log("Saved amount of banks: " + localStorage.getItem("amountBank"));
-                    console.log("Saved amount of temples: " + localStorage.getItem("amountTemple"));
-                    console.warn("END OF AUTOSAVE INFORMATION")
-                    */
                 }
             }
 
@@ -772,18 +894,28 @@
 
                 woodenFinger = JSON.parse(localStorage.getItem('amountWoodenFinger'));
                 ironFinger = JSON.parse(localStorage.getItem('amountIronFinger'));
+                silverFinger = JSON.parse(localStorage.getItem('amountSilverFinger'));
+                goldenFinger = JSON.parse(localStorage.getItem('amountGoldenFinger'));
+                steelFinger = JSON.parse(localStorage.getItem('amountSteelFinger'));
+                titaniumFinger = JSON.parse(localStorage.getItem('amountTitaniumFinger'));
+                diamondFinger = JSON.parse(localStorage.getItem('amountDiamondFinger'));
 
-                amountCursor.value = cursor
-                amountGranny.value = granny
-                amountFarm.value = farm
-                amountMine.value = mine
-                amountFactory.value = factory
-                amountBank.value = bank
-                amountTemple.value = temple
-                amountWTower.value = wTower
+                amountCursor.value = toEnglishNumberNotation(cursor)
+                amountGranny.value = toEnglishNumberNotation(granny)
+                amountFarm.value = toEnglishNumberNotation(farm)
+                amountMine.value = toEnglishNumberNotation(mine)
+                amountFactory.value = toEnglishNumberNotation(factory)
+                amountBank.value = toEnglishNumberNotation(bank)
+                amountTemple.value = toEnglishNumberNotation(temple)
+                amountWTower.value = toEnglishNumberNotation(wTower)
 
-                amountWoodenFinger.value = woodenFinger
-                amountIronFinger.value = ironFinger
+                amountWoodenFinger.value = toEnglishNumberNotation(woodenFinger)
+                amountIronFinger.value = toEnglishNumberNotation(ironFinger)
+                amountSilverFinger.value = toEnglishNumberNotation(silverFinger)
+                amountGoldenFinger.value = toEnglishNumberNotation(goldenFinger)
+                amountSteelFinger.value = toEnglishNumberNotation(steelFinger)
+                amountTitaniumFinger.value = toEnglishNumberNotation(titaniumFinger)
+                amountDiamondFinger.value = toEnglishNumberNotation(diamondFinger)
 
                 cursorButton.value = "Buy a cursor for " + toEnglishNumberNotation(Math.trunc(150 * Math.pow(1.15, cursor))) + " cookies."
                 sellCursorButton.value = "Sell a cursor for " + toEnglishNumberNotation(Math.trunc((150 * Math.pow(1.15, cursor)) / 4)) + " cookies."
@@ -804,6 +936,11 @@
 
                 woodenFingerButton.value = "Buy a wooden finger for " + toEnglishNumberNotation(Math.trunc(1000 * Math.pow(1.15, woodenFinger))) + " cookies."
                 ironFingerButton.value = "Buy an iron finger for " + toEnglishNumberNotation(Math.trunc(150000 * Math.pow(1.15, ironFinger))) + " cookies."
+                silverFingerButton.value = "Buy a silver finger for " + toEnglishNumberNotation(Math.trunc(10000000 * Math.pow(1.15, silverFinger))) + " cookies."
+                goldenFingerButton.value = "Buy a golden finger for " + toEnglishNumberNotation(Math.trunc(1000000000 * Math.pow(1.15, goldenFinger))) + " cookies."
+                steelFingerButton.value = "Buy a steel finger for " + toEnglishNumberNotation(Math.trunc(100000000000 * Math.pow(1.15, steelFinger))) + " cookies."
+                titaniumFingerButton.value = "Buy a titanium finger for " + toEnglishNumberNotation(Math.trunc(100000000000000 * Math.trunc(1.15, titaniumFinger))) + " cookies."
+                diamondFingerButton.value = "Buy a diamond finger for " + toEnglishNumberNotation(Math.trunc(100000000000000000 * Math.pow(1.15, diamondFinger))) + " cookies."
 
                 console.log("Progress loaded succesfully.");
                 if (!cpsStarted) {
@@ -815,7 +952,6 @@
             load()
 
             function updateButtons() {
-                // (1000 * Math.pow(1.15, cursor))
                 if (clicks >= (3300000000 * Math.pow(1.15, wTower))) {
                     wTowerButton.className = "canBuy"
                 } else {
@@ -862,11 +998,8 @@
                 } else {
                     cursorButton.className = "cannotBuy"
                 }
-            }
 
-            setInterval(updateButtons, 100)
-
-            function updateSellButtons() {
+                // SELL BUTTONS
                 if (cursor >= 1) {
                     sellCursorButton.className = "canSell"
                 } else {
@@ -914,11 +1047,8 @@
                 } else {
                     sellWTowerButton.className = "cannotSell"
                 }
-            }
 
-            setInterval(updateSellButtons, 100)
-
-            function updateFingerButtons() {
+                // FINGER BUTTONS
                 if (clicks >= Math.trunc(1000 * Math.pow(1.15, woodenFinger))) {
                     woodenFingerButton.className = "canBuy"
                 } else {
@@ -930,9 +1060,39 @@
                 } else {
                     ironFingerButton.className = "cannotBuy"
                 }
+
+                if (clicks >= Math.trunc(10000000 * Math.pow(1.15, silverFinger))) {
+                    silverFingerButton.className = "canBuy"
+                } else {
+                    silverFingerButton.className = "cannotBuy"
+                }
+
+                if (clicks >= Math.trunc(1000000000 * Math.pow(1.15, goldenFinger))) {
+                    goldenFingerButton.className = "canBuy"
+                } else {
+                    goldenFingerButton.className = "cannotBuy"
+                }
+
+                if (clicks >= Math.trunc(100000000000 * Math.pow(1.15, steelFinger))) {
+                    steelFingerButton.className = "canBuy"
+                } else {
+                    steelFingerButton.className = "cannotBuy"
+                }
+
+                if (clicks >= Math.trunc(100000000000000 * Math.trunc(1.15, titaniumFinger))) {
+                    titaniumFingerButton.className = "canBuy"
+                } else {
+                    titaniumFingerButton.className = "cannotBuy"
+                }
+
+                if (clicks >= Math.trunc(100000000000000000 * Math.pow(1.15, diamondFinger))) {
+                    diamondFingerButton.className = "canBuy"
+                } else {
+                    diamondFingerButton.className = "cannotBuy"
+                }
             }
 
-            setInterval(updateFingerButtons, 100)
+            setInterval(updateButtons, 100)
 
             function reset() {
                 if (confirm("Are you sure you want to delete ALL your progress?")) {
@@ -954,6 +1114,12 @@
 
                             localStorage.removeItem('amountWoodenFinger');
                             localStorage.removeItem('amountIronFinger');
+                            localStorage.removeItem('amountSilverFinger');
+                            localStorage.removeItem('amountGoldenFinger');
+                            localStorage.removeItem('amountSteelFinger');
+                            localStorage.removeItem('amountTitaniumFinger');
+                            localStorage.removeItem('amountDiamondFinger');
+
                             clicks = 0
                             cps = 0
                             cookies.textContent = 0
