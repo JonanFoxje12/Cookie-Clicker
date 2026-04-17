@@ -14,6 +14,9 @@ The changlog started on May 24th 2026.
 - Nothing here anymore...
 - If you have any ideas, post them as an issue!
 
+## Moving cookie (April 17<sup>th</sup> 2026): small change
+- Cookie shrinks a bit when cookie is clicked.
+
 ## Toggle close confirm (April 2<sup>nd</sup> 2026): small change
 - User can choose whether he wants to recieve a warning when he tries to close the game
 
