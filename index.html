@@ -16,7 +16,7 @@
                 cursor: help;
             }
 
-            .cookie {
+            .cookieButton {
                 background-color: rgba(255, 255, 255, 255);
                 border: none;
                 display: block;
@@ -169,10 +169,27 @@
             .slider.round:before {
                 border-radius: 50%;
             }
+
+            .cookieSmall {
+                height: 475px;
+            }
+
+            .cookieNormal {
+                height: 512px;
+            }
+
+            #cookieContainer {
+                height: 512px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         </style>
     </head>
     <body>
-        <button class="cookie" onclick="clicked()"><img src="Cookie.webp" alt="Cookie.webp" id="cookie" draggable="false"></button>
+        <div id="cookieContainer">
+            <button class="cookieButton" onclick="clicked()"><img src="Cookie.webp" alt="Cookie.webp" id="cookie" draggable="false"></button>
+        </div>
 
         <p id="cookies">0</p>
         <p id="outputCps">0 CpS</p>
@@ -449,13 +466,13 @@
             function clicked() {
                 clicks += cpc
                 cookies.textContent = toEnglishNumberNotation(clicks)
-                //cookie.width = 450
-                //setTimeout(normalSize, 100)
+                cookie.className = "cookieSmall"
+                setTimeout(normalSize, 100)
             }
 
-            //function normalSize() {
-            //    cookie.width = 512
-            //}
+            function normalSize() {
+                cookie.className = "cookieNormal"
+            }
 
             function buyCursor() {
                 if (clicks >= Math.trunc(150 * Math.pow(1.15, cursor))) {
