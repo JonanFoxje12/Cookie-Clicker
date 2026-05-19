@@ -31,7 +31,7 @@ The changlog started on May 24th 2026.
 - Fixed some English number notations inside the script
 
 ## English number notation (March 27<sup>th</sup> 2026): small change
-- Ten million was written as "10000000", new it's written as "10,000,000"
+- Ten million was written as "10000000", now it's written as "10,000,000"
 
 ## Credits added (March 27<sup>th</sup> 2026): small change
 - Credits added
